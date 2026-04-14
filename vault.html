@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vault — Steam Corp Processing</title>
+  <meta name="description" content="Report for processing. Steam Corp biometric acquisition unit.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/vault.css">
+
+  <!-- face-api.js (loaded async — only on this page) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__logo">
+      <svg class="nav__logo-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <line x1="12" y1="8" x2="12" y2="2" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      Steam Corp
+    </div>
+    <div class="nav__hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link">Unit-000: Intake</a></li>
+      <li><a href="vault.html" class="nav__link">Unit-001: Vault</a></li>
+      <li><a href="assets.html" class="nav__link">Unit-002: Personnel</a></li>
+      <li><a href="about.html" class="nav__link">Unit-003: Memorandum</a></li>
+    </ul>
+  </nav>
+
+  <div class="scanline-overlay"></div>
+
+  <main class="vault">
+
+    <!-- STATE 1: Permission Prompt -->
+    <div class="vault__prompt" id="vault-prompt">
+      <div class="vault__prompt-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor" fill="none" stroke-width="1.5"/>
+          <circle cx="12" cy="13" r="4" stroke="currentColor" fill="none" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h1 class="vault__prompt-title">Authorization Required</h1>
+      <p class="vault__prompt-text">
+        Grant camera access to initiate<br>biometric processing sequence
+      </p>
+      <button class="btn btn--primary" id="start-btn">Authorize Capture</button>
+    </div>
+
+    <!-- STATE 2: Loading -->
+    <div class="vault__loading" id="vault-loading">
+      <p class="vault__loading-text">Initializing Detection Systems...</p>
+      <div class="vault__loading-bar">
+        <div class="vault__loading-bar-fill" id="loading-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- STATE 3: Main Experience -->
+    <div class="vault__experience" id="vault-experience">
+      <div class="vault__canvas-wrapper">
+        <video id="vault-video" class="vault__video" autoplay playsinline muted></video>
+        <canvas id="vault-canvas" class="vault__canvas"></canvas>
+      </div>
+
+      <div class="vault__placard">
+        <p class="vault__placard-text" id="placard-text">Awaiting Subject...</p>
+        <p class="vault__placard-sub" id="placard-sub">Position face within frame</p>
+      </div>
+
+      <div class="vault__controls">
+        <button class="btn" id="download-btn" disabled>Download</button>
+        <button class="btn" id="share-btn" disabled style="display: none;">Share</button>
+        <button class="btn" id="twitter-btn" disabled>Post to X</button>
+      </div>
+    </div>
+
+    <!-- STATE 4: Error -->
+    <div class="vault__error" id="vault-error">
+      <h2 class="vault__error-title" id="error-title">Access Denied</h2>
+      <p class="vault__error-text" id="error-text">
+        Camera permission was denied. Grant access to proceed with processing.
+      </p>
+      <div class="vault__error-retry">
+        <button class="btn" id="retry-btn">Retry Authorization</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast -->
+  <div class="vault__toast" id="vault-toast"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/vault.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam Corp — Own Everything. Owe Nothing.</title>
+  <meta name="description" content="Steam Corp Private Vault. You've been acquired. Own Everything. Owe Nothing.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__logo">
+      <svg class="nav__logo-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <line x1="12" y1="8" x2="12" y2="2" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      Steam Corp
+    </div>
+
+    <div class="nav__hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link">Unit-000: Intake</a></li>
+      <li><a href="vault.html" class="nav__link">Unit-001: Vault</a></li>
+      <li><a href="assets.html" class="nav__link">Unit-002: Personnel</a></li>
+      <li><a href="about.html" class="nav__link">Unit-003: Memorandum</a></li>
+    </ul>
+  </nav>
+
+  <!-- Scanline overlay -->
+  <div class="scanline-overlay"></div>
+
+  <!-- Home Page -->
+  <main class="home">
+    <!-- Background layers -->
+    <div class="home__bg"></div>
+    <div class="home__corridor-lines"></div>
+    <div class="home__vignette"></div>
+
+    <!-- Main content -->
+    <div class="home__content">
+      <p class="home__identifier fade-in">
+        Steam Corp &mdash; Private Vault Division
+      </p>
+
+      <h1 class="home__headline fade-in fade-in--delay-1">
+        You've Been<br>Acquired.
+      </h1>
+
+      <p class="home__tagline fade-in fade-in--delay-2">
+        Own Everything. Owe Nothing.
+      </p>
+
+      <div class="home__cta fade-in fade-in--delay-3">
+        <a href="vault.html" class="btn btn--primary">Report for Processing</a>
+      </div>
+    </div>
+
+    <!-- Bottom status bar -->
+    <div class="home__status fade-in fade-in--delay-4">
+      <span class="home__status-item">
+        <span class="home__status-dot"></span>
+        Vault Status: Active
+      </span>
+      <span class="home__status-item">Assets Acquired: 4</span>
+      <span class="home__status-item">Clearance: Public</span>
+    </div>
+
+    <!-- Legal -->
+    <p class="home__legal fade-in fade-in--delay-4">
+      &copy; Valve Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries. This is a student thesis project — not affiliated with Valve.
+    </p>
+  </main>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
