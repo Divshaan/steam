@@ -1,0 +1,190 @@
+/* ============================================
+   HOME PAGE — "You've been acquired."
+   ============================================ */
+
+.home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero background — dark corridor gradient placeholder */
+.home__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(42, 71, 94, 0.3) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0e14 0%, #1b2838 40%, #0d1117 100%);
+  z-index: 0;
+}
+
+/* Animated ambient light sweep */
+.home__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(102, 192, 244, 0.04) 0%, transparent 50%);
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Horizontal corridor lines */
+.home__corridor-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.home__corridor-lines::before,
+.home__corridor-lines::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(102, 192, 244, 0.1) 20%,
+    rgba(102, 192, 244, 0.2) 50%,
+    rgba(102, 192, 244, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+.home__corridor-lines::before { top: 35%; }
+.home__corridor-lines::after { top: 65%; }
+
+/* Vignette */
+.home__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 2;
+}
+
+/* Content */
+.home__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+/* Steam Corp identifier */
+.home__identifier {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-steel-blue);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Main headline */
+.home__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Tagline */
+.home__tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  color: var(--color-bright-blue);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* CTA Button */
+.home__cta {
+  display: inline-block;
+}
+
+.home__cta .btn {
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  padding: 16px 48px;
+}
+
+/* Bottom status bar */
+.home__status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-top: var(--border-industrial);
+  background: rgba(13, 17, 23, 0.5);
+}
+
+.home__status-item {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-steel-blue);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.home__status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-bright-blue);
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Legal line */
+.home__legal {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  color: rgba(198, 212, 223, 0.25);
+  letter-spacing: 0.05em;
+  padding: 0 var(--spacing-md);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .home__status {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .home__identifier {
+    margin-bottom: var(--spacing-md);
+  }
+}
