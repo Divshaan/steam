@@ -65,9 +65,9 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  max-width: 1180px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -96,9 +96,10 @@
 }
 
 .vault-tile:hover {
-  border-color: var(--hairline-strong);
+  border-color: var(--accent);
   background: rgba(27, 40, 56, 0.75);
   transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(102, 192, 244, 0.2);
 }
 
 .vault-tile:hover::after {
@@ -130,7 +131,7 @@
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .vault__tiles { grid-template-columns: repeat(2, 1fr); }
 }
 
