@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWNED — Doctrine</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/doctrine.css">
+
+  <script src="js/owner.js"></script>
+  <script>if (window.OWNED) window.OWNED.ensureIntake();</script>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="vault.html">
+        <svg class="sigil" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <path d="M 16 8 L 16 18 M 12 22 L 20 22 M 14 18 L 18 18" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        <span>OWNED</span>
+      </a>
+      <button class="site-nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="site-nav__links">
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="specimens.html">Specimens</a></li>
+        <li><a href="credential.html">Credential</a></li>
+        <li><a href="doctrine.html">Doctrine</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="doctrine">
+    <div class="doctrine__sigil-wrap">
+      <svg class="doctrine__sigil" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="0.4"/>
+        <circle cx="32" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="0.3"/>
+        <path d="M 32 14 L 32 38 M 24 44 L 40 44 M 28 38 L 36 38" stroke="currentColor" stroke-width="0.8" fill="none"/>
+        <circle cx="32" cy="32" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <header class="doctrine__head">
+      <p class="mono doctrine__eyebrow">Manifesto · Terms of Preservation</p>
+      <h1 class="display doctrine__title">Doctrine</h1>
+    </header>
+
+    <article class="doctrine__body">
+      <p class="doctrine__lede">
+        The Holdings is a private institution for the preservation of owned titles.
+        What follows are the terms by which the Keeper administers the record.
+      </p>
+
+      <section>
+        <h2 class="display doctrine__section">I. On Ownership</h2>
+        <p>
+          A thing owned is a thing held. It does not vanish when a monthly fee goes unpaid. It does not withdraw when a publisher revises its catalog. It does not expire at the end of a quarter. Elsewhere, these conditions are common. They are the defining conditions of rental. Here, they do not apply. The titles admitted to the Holdings are held by the owner of record, and the Holdings does not hold them on any other terms.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="display doctrine__section">II. On the Holdings</h2>
+        <p>
+          The Holdings is not a catalog of purchases. It is a permanent register of titles, each accessioned on the day of its acquisition and preserved without condition thereafter. The register admits no rentals, no leases, no provisional access, no short-term licences. It admits only ownership. A title enters the Holdings once and does not leave.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="display doctrine__section">III. On the Keeper</h2>
+        <p>
+          The Keeper is the custodian of the record. The Keeper accessions, indexes, and preserves. The Keeper does not curate on behalf of the owner. The Keeper does not discourage, recommend, or substitute. What the owner admits, the Keeper records. What the Keeper records, the Keeper defends. The owner is the authority over the Holdings. The Keeper is its memory.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="display doctrine__section">IV. On Perpetuity</h2>
+        <p>
+          Preservation, in the Holdings, is not a slogan. It is the operating condition. A title preserved here is preserved for the working life of the owner's record, with no foreseen end to that record. Servers going dark, services consolidating, catalogs rotating — these occur elsewhere. They do not reach into the Holdings. The rule of the register is simple, and it is the rule by which the Keeper serves: own everything, owe nothing.
+        </p>
+      </section>
+
+      <p class="doctrine__signature serif-italic">— The Keeper</p>
+
+      <div class="doctrine__foot">
+        <span class="mono">Counter-signed · Sealed · In perpetuity</span>
+        <span class="mono accession" id="doctrine-accession">Acc. № 2026.0000</span>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <svg class="sigil" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <path d="M 16 8 L 16 18 M 12 22 L 20 22 M 14 18 L 18 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor"/>
+      </svg>
+      <span class="site-footer__tagline">The Keeper · In perpetuity</span>
+      <span class="accession" id="footer-accession">Acc. № 2026.0000</span>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script>
+    var owner = window.OWNED && window.OWNED.getOwner();
+    if (owner) {
+      var a = document.getElementById("footer-accession");
+      var b = document.getElementById("doctrine-accession");
+      var text = "Acc. № " + owner.accession;
+      if (a) a.textContent = text;
+      if (b) b.textContent = text;
+    }
+  </script>
+</body>
+</html>

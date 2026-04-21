@@ -3,111 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Vault — Steam Corp Processing</title>
-  <meta name="description" content="Report for processing. Steam Corp biometric acquisition unit.">
+  <title>OWNED — Vault Hub</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/vault.css">
 
-  <!-- face-api.js (loaded async — only on this page) -->
-  <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+  <script src="js/owner.js"></script>
+  <script>if (window.OWNED) window.OWNED.ensureIntake();</script>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__logo">
-      <svg class="nav__logo-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-        <line x1="12" y1="8" x2="12" y2="2" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
-      Steam Corp
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="vault.html">
+        <svg class="sigil" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <path d="M 16 8 L 16 18 M 12 22 L 20 22 M 14 18 L 18 18" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        <span>OWNED</span>
+      </a>
+      <button class="site-nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="site-nav__links">
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="specimens.html">Specimens</a></li>
+        <li><a href="credential.html">Credential</a></li>
+        <li><a href="doctrine.html">Doctrine</a></li>
+      </ul>
     </div>
-    <div class="nav__hamburger" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </div>
-    <ul class="nav__links">
-      <li><a href="index.html" class="nav__link">Unit-000: Intake</a></li>
-      <li><a href="vault.html" class="nav__link">Unit-001: Vault</a></li>
-      <li><a href="assets.html" class="nav__link">Unit-002: Personnel</a></li>
-      <li><a href="about.html" class="nav__link">Unit-003: Memorandum</a></li>
-    </ul>
   </nav>
-
-  <div class="scanline-overlay"></div>
 
   <main class="vault">
 
-    <!-- STATE 1: Permission Prompt -->
-    <div class="vault__prompt" id="vault-prompt">
-      <div class="vault__prompt-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor" fill="none" stroke-width="1.5"/>
-          <circle cx="12" cy="13" r="4" stroke="currentColor" fill="none" stroke-width="1.5"/>
-        </svg>
-      </div>
-      <h1 class="vault__prompt-title">Authorization Required</h1>
-      <p class="vault__prompt-text">
-        Grant camera access to initiate<br>biometric processing sequence
+    <!-- Background corridor -->
+    <svg class="vault__corridor" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="vaultGlow" cx="50%" cy="50%" r="30%">
+          <stop offset="0%" stop-color="#66c0f4" stop-opacity="0.55"/>
+          <stop offset="40%" stop-color="#66c0f4" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#66c0f4" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="vaultFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1b2838"/>
+          <stop offset="100%" stop-color="#0e141b"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Floor -->
+      <polygon points="0,700 1600,700 1600,900 0,900" fill="url(#vaultFloor)"/>
+
+      <!-- Perspective lines on ceiling + floor -->
+      <g stroke="#2a475e" stroke-width="0.6" fill="none" opacity="0.6">
+        <line x1="0"    y1="0"   x2="800" y2="450"/>
+        <line x1="1600" y1="0"   x2="800" y2="450"/>
+        <line x1="0"    y1="900" x2="800" y2="450"/>
+        <line x1="1600" y1="900" x2="800" y2="450"/>
+        <line x1="0"    y1="200" x2="800" y2="450"/>
+        <line x1="1600" y1="200" x2="800" y2="450"/>
+        <line x1="0"    y1="700" x2="800" y2="450"/>
+        <line x1="1600" y1="700" x2="800" y2="450"/>
+      </g>
+
+      <!-- Left vitrines -->
+      <g stroke="#2a475e" stroke-width="0.9" fill="none">
+        <path d="M 80 180 L 80 720 M 260 240 L 260 660 M 400 290 L 400 610 M 510 330 L 510 570 M 595 360 L 595 540 M 660 380 L 660 520"/>
+      </g>
+      <!-- Right vitrines -->
+      <g stroke="#2a475e" stroke-width="0.9" fill="none">
+        <path d="M 1520 180 L 1520 720 M 1340 240 L 1340 660 M 1200 290 L 1200 610 M 1090 330 L 1090 570 M 1005 360 L 1005 540 M 940 380 L 940 520"/>
+      </g>
+
+      <!-- Vitrine cross-beams (faint) -->
+      <g stroke="#2a475e" stroke-width="0.4" fill="none" opacity="0.6">
+        <line x1="80"   y1="380" x2="660" y2="440"/>
+        <line x1="1520" y1="380" x2="940" y2="440"/>
+      </g>
+
+      <!-- Far doorway -->
+      <rect x="720" y="350" width="160" height="260" fill="#0a0f14" stroke="#2a475e" stroke-width="1"/>
+      <rect x="750" y="380" width="100" height="200" fill="url(#vaultGlow)"/>
+    </svg>
+
+    <section class="vault__hero">
+      <p class="vault__eyebrow mono fade-in">The Holdings · Private Access</p>
+      <h1 class="vault__greeting serif fade-in delay-1">
+        Welcome, <span id="owner-name-slot">Owner of Record</span>.<br>
+        Your Holdings are secure.
+      </h1>
+      <p class="vault__sub mono fade-in delay-2">
+        Nothing has moved. Nothing has expired. Nothing is rented.
       </p>
-      <button class="btn btn--primary" id="start-btn">Authorize Capture</button>
-    </div>
+    </section>
 
-    <!-- STATE 2: Loading -->
-    <div class="vault__loading" id="vault-loading">
-      <p class="vault__loading-text">Initializing Detection Systems...</p>
-      <div class="vault__loading-bar">
-        <div class="vault__loading-bar-fill" id="loading-bar-fill"></div>
-      </div>
-    </div>
-
-    <!-- STATE 3: Main Experience -->
-    <div class="vault__experience" id="vault-experience">
-      <div class="vault__canvas-wrapper">
-        <video id="vault-video" class="vault__video" autoplay playsinline muted></video>
-        <canvas id="vault-canvas" class="vault__canvas"></canvas>
-      </div>
-
-      <div class="vault__placard">
-        <p class="vault__placard-text" id="placard-text">Awaiting Subject...</p>
-        <p class="vault__placard-sub" id="placard-sub">Position face within frame</p>
-      </div>
-
-      <div class="vault__controls">
-        <button class="btn" id="download-btn" disabled>Download</button>
-        <button class="btn" id="share-btn" disabled style="display: none;">Share</button>
-        <button class="btn" id="twitter-btn" disabled>Post to X</button>
-      </div>
-    </div>
-
-    <!-- STATE 4: Error -->
-    <div class="vault__error" id="vault-error">
-      <h2 class="vault__error-title" id="error-title">Access Denied</h2>
-      <p class="vault__error-text" id="error-text">
-        Camera permission was denied. Grant access to proceed with processing.
-      </p>
-      <div class="vault__error-retry">
-        <button class="btn" id="retry-btn">Retry Authorization</button>
-      </div>
-    </div>
-
+    <section class="vault__tiles fade-in delay-3">
+      <a class="vault-tile" href="library.html">
+        <span class="vault-tile__num mono">I</span>
+        <h2 class="vault-tile__title display">Library</h2>
+        <p class="vault-tile__desc mono">The catalog · Items in your holdings</p>
+      </a>
+      <a class="vault-tile" href="specimens.html">
+        <span class="vault-tile__num mono">II</span>
+        <h2 class="vault-tile__title display">Specimens</h2>
+        <p class="vault-tile__desc mono">Exhibits · On permanent display</p>
+      </a>
+      <a class="vault-tile" href="credential.html">
+        <span class="vault-tile__num mono">III</span>
+        <h2 class="vault-tile__title display">Credential</h2>
+        <p class="vault-tile__desc mono">Your record · Proof of title</p>
+      </a>
+      <a class="vault-tile" href="doctrine.html">
+        <span class="vault-tile__num mono">IV</span>
+        <h2 class="vault-tile__title display">Doctrine</h2>
+        <p class="vault-tile__desc mono">The manifesto · Terms of preservation</p>
+      </a>
+    </section>
   </main>
 
-  <!-- Toast -->
-  <div class="vault__toast" id="vault-toast"></div>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <svg class="sigil" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <path d="M 16 8 L 16 18 M 12 22 L 20 22 M 14 18 L 18 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor"/>
+      </svg>
+      <span class="site-footer__tagline">The Keeper · In perpetuity</span>
+      <span class="accession" id="footer-accession">Acc. № 2026.0000</span>
+    </div>
+  </footer>
 
   <script src="js/nav.js"></script>
-  <script src="js/sound.js"></script>
   <script src="js/vault.js"></script>
 </body>
 </html>

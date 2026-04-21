@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWNED — Specimens</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/specimens.css">
+
+  <script src="js/owner.js"></script>
+  <script>if (window.OWNED) window.OWNED.ensureIntake();</script>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="vault.html">
+        <svg class="sigil" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <path d="M 16 8 L 16 18 M 12 22 L 20 22 M 14 18 L 18 18" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        <span>OWNED</span>
+      </a>
+      <button class="site-nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="site-nav__links">
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="specimens.html">Specimens</a></li>
+        <li><a href="credential.html">Credential</a></li>
+        <li><a href="doctrine.html">Doctrine</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page specimens">
+    <header class="specimens__head">
+      <p class="mono specimens__eyebrow">Featured Exhibits · On permanent display</p>
+      <h1 class="display specimens__title">Specimens</h1>
+      <p class="serif-italic specimens__lede">
+        A small selection of the campaign's material record. Presented here as it would appear in the field.
+      </p>
+    </header>
+
+    <!-- Exhibit A: Magazine spread -->
+    <article class="exhibit">
+      <div class="exhibit__frame">
+        <svg class="exhibit__art spread" viewBox="0 0 900 560" role="img" aria-label="Magazine spread">
+          <!-- Paper / spine -->
+          <rect x="0" y="0" width="900" height="560" fill="#0e141b"/>
+          <rect x="20" y="20" width="420" height="520" fill="#10171f" stroke="#1b2838" stroke-width="1"/>
+          <rect x="460" y="20" width="420" height="520" fill="#10171f" stroke="#1b2838" stroke-width="1"/>
+          <line x1="450" y1="20" x2="450" y2="540" stroke="#0e141b" stroke-width="2"/>
+
+          <!-- LEFT PAGE: empty vitrine -->
+          <g>
+            <!-- Vitrine frame -->
+            <rect x="130" y="90" width="200" height="340" fill="#0a0f14" stroke="#2a475e" stroke-width="1.2"/>
+            <!-- Glass glint -->
+            <line x1="150" y1="100" x2="190" y2="230" stroke="#66c0f4" stroke-width="0.6" opacity="0.35"/>
+            <line x1="160" y1="100" x2="200" y2="200" stroke="#66c0f4" stroke-width="0.4" opacity="0.25"/>
+            <!-- Plinth -->
+            <rect x="160" y="400" width="140" height="20" fill="#1b2838" stroke="#2a475e" stroke-width="0.8"/>
+            <rect x="155" y="415" width="150" height="8" fill="#0a0f14" stroke="#2a475e" stroke-width="0.6"/>
+            <!-- Dust outline where a specimen sat -->
+            <ellipse cx="230" cy="398" rx="40" ry="5" fill="none" stroke="#8899a6" stroke-width="0.4" stroke-dasharray="3 4" opacity="0.4"/>
+            <!-- Brass plaque -->
+            <rect x="190" y="445" width="80" height="26" fill="#2a475e" stroke="#b8892b" stroke-width="0.6"/>
+            <text x="230" y="462" text-anchor="middle"
+                  font-family="Roboto Mono, monospace" font-size="7"
+                  letter-spacing="2" fill="#c6d4df">RECALLED · VOID</text>
+          </g>
+
+          <!-- RIGHT PAGE: hero copy -->
+          <g>
+            <text x="670" y="240" text-anchor="middle"
+                  font-family="Cormorant Garamond, serif"
+                  font-size="28" font-style="italic"
+                  fill="#c6d4df">Borrowed things</text>
+            <text x="670" y="278" text-anchor="middle"
+                  font-family="Cormorant Garamond, serif"
+                  font-size="28" font-style="italic"
+                  fill="#c6d4df">go back.</text>
+            <text x="670" y="340" text-anchor="middle"
+                  font-family="Cormorant Garamond, serif"
+                  font-size="28" font-weight="500"
+                  fill="#c6d4df">Owned things stay.</text>
+            <!-- Hairline -->
+            <line x1="590" y1="380" x2="750" y2="380" stroke="#66c0f4" stroke-width="0.6" opacity="0.5"/>
+            <!-- Wordmark -->
+            <text x="670" y="460" text-anchor="middle"
+                  font-family="Bebas Neue, sans-serif"
+                  font-size="22" letter-spacing="8"
+                  fill="#c6d4df">OWNED</text>
+            <text x="670" y="478" text-anchor="middle"
+                  font-family="Roboto Mono, monospace" font-size="6"
+                  letter-spacing="3" fill="#8899a6">OWN EVERYTHING · OWE NOTHING</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit__caption">
+        <span class="mono exhibit__acc">Specimen A · Print · Two-page spread</span>
+        <h2 class="display exhibit__title">Magazine</h2>
+        <p class="serif exhibit__desc">
+          The campaign's hero thesis set as editorial print. An empty vitrine on the left, its specimen recalled and its plaque voided — the quiet fate of a rented title. On the right, the ownership counter-argument, alone on its page.
+        </p>
+      </div>
+    </article>
+
+    <!-- Exhibit B: Credential card mock -->
+    <article class="exhibit">
+      <div class="exhibit__frame">
+        <svg class="exhibit__art card-mock" viewBox="0 0 640 400" role="img" aria-label="Credential card">
+          <!-- Card base -->
+          <rect x="40" y="40" width="560" height="320" rx="6" fill="#2a475e" stroke="#66c0f4" stroke-width="0.8" opacity="0.98"/>
+          <!-- Inner vignette -->
+          <rect x="52" y="52" width="536" height="296" rx="3" fill="none" stroke="#c6d4df" stroke-width="0.4" opacity="0.4"/>
+
+          <!-- Left: photo slot silhouette -->
+          <g transform="translate(70,72)">
+            <rect x="0" y="0" width="140" height="180" fill="#1b2838" stroke="#66c0f4" stroke-width="0.4"/>
+            <!-- Silhouette -->
+            <circle cx="70" cy="66" r="26" fill="#0e141b" stroke="#8899a6" stroke-width="0.5"/>
+            <path d="M 70 100 C 44 100, 28 118, 28 146 L 28 180 L 112 180 L 112 146 C 112 118, 96 100, 70 100 Z"
+                  fill="#0e141b" stroke="#8899a6" stroke-width="0.5"/>
+            <!-- Label -->
+            <text x="70" y="200" text-anchor="middle"
+                  font-family="Roboto Mono, monospace" font-size="7"
+                  letter-spacing="2" fill="#8899a6">OWNER OF RECORD</text>
+          </g>
+
+          <!-- Right: meta -->
+          <g transform="translate(240, 78)">
+            <!-- Wordmark -->
+            <text x="0" y="18"
+                  font-family="Bebas Neue, sans-serif"
+                  font-size="22" letter-spacing="6"
+                  fill="#c6d4df">OWNED</text>
+            <text x="0" y="34"
+                  font-family="Roboto Mono, monospace" font-size="7"
+                  letter-spacing="3" fill="#8899a6">THE HOLDINGS · CREDENTIAL</text>
+
+            <!-- Name -->
+            <text x="0" y="86"
+                  font-family="Bebas Neue, sans-serif"
+                  font-size="28" letter-spacing="3"
+                  fill="#c6d4df">EXAMPLE OWNER</text>
+            <line x1="0" y1="94" x2="300" y2="94" stroke="#66c0f4" stroke-width="0.5" opacity="0.6"/>
+
+            <!-- Tier -->
+            <text x="0" y="124"
+                  font-family="Roboto Mono, monospace" font-size="8"
+                  letter-spacing="2.5" fill="#8899a6">TIER</text>
+            <text x="0" y="144"
+                  font-family="Cormorant Garamond, serif" font-size="16"
+                  fill="#c6d4df">Curator-in-Training</text>
+
+            <!-- Accession -->
+            <text x="0" y="180"
+                  font-family="Roboto Mono, monospace" font-size="8"
+                  letter-spacing="2.5" fill="#8899a6">ACCESSION</text>
+            <text x="0" y="200"
+                  font-family="Roboto Mono, monospace" font-size="12"
+                  letter-spacing="2" fill="#c6d4df">Acc. № 2026.0142</text>
+          </g>
+
+          <!-- Sigil embossed -->
+          <g transform="translate(560, 310)" opacity="0.85">
+            <circle cx="0" cy="0" r="22" fill="none" stroke="#66c0f4" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="15" fill="none" stroke="#66c0f4" stroke-width="0.4"/>
+            <path d="M 0 -10 L 0 4 M -5 8 L 5 8 M -3 4 L 3 4" stroke="#66c0f4" stroke-width="0.8" fill="none"/>
+            <circle cx="0" cy="0" r="2" fill="#66c0f4"/>
+          </g>
+
+          <!-- Micro-text footer -->
+          <text x="70" y="346"
+                font-family="Roboto Mono, monospace" font-size="6"
+                letter-spacing="2" fill="#8899a6">THE KEEPER PRESERVES THIS RECORD IN PERPETUITY</text>
+        </svg>
+      </div>
+      <div class="exhibit__caption">
+        <span class="mono exhibit__acc">Specimen B · Physical · 85×55mm</span>
+        <h2 class="display exhibit__title">Credential</h2>
+        <p class="serif exhibit__desc">
+          Issued on acquisition. The owner's physical proof of title. The card carries their likeness, their tier, and their accession number — sealed and counter-signed by the Keeper's sigil.
+        </p>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <svg class="sigil" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <path d="M 16 8 L 16 18 M 12 22 L 20 22 M 14 18 L 18 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor"/>
+      </svg>
+      <span class="site-footer__tagline">The Keeper · In perpetuity</span>
+      <span class="accession" id="footer-accession">Acc. № 2026.0000</span>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script>
+    var owner = window.OWNED && window.OWNED.getOwner();
+    if (owner) {
+      var el = document.getElementById("footer-accession");
+      if (el) el.textContent = "Acc. № " + owner.accession;
+    }
+  </script>
+</body>
+</html>
