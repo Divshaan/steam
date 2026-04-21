@@ -42,16 +42,6 @@
         "Yours has not."
       ]
     },
-    jin: {
-      acc: "Acc. № 004",
-      title: "Ghost of Tsushima",
-      tier: "Saga · Complete Holding",
-      copy: [
-        "Acquired from Sony's first-party archive and admitted to the Holdings. Base game and director's cut materials preserved as a single record.",
-        "The island is yours. Its skies are yours. The honour of its last stand is yours. None of this is rented, none of this expires, none of this requires renewal.",
-        "The Keeper has sealed the record."
-      ]
-    },
     drake: {
       acc: "Acc. № 005",
       title: "Uncharted 4: A Thief's End",
@@ -96,8 +86,8 @@
       detailCopy.appendChild(el);
     });
 
-    // Clone the card's portrait SVG
-    var portrait = card.querySelector(".holdings-card__portrait svg");
+    var portraitWrap = card.querySelector(".holdings-card__portrait");
+    var portrait = portraitWrap && portraitWrap.firstElementChild;
     detailPortrait.innerHTML = "";
     if (portrait) detailPortrait.appendChild(portrait.cloneNode(true));
 
