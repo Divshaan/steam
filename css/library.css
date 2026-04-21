@@ -65,10 +65,13 @@
   overflow: hidden;
 }
 
-.holdings-card:hover {
-  border-color: var(--hairline-strong);
+.holdings-card:hover,
+.holdings-card.is-active {
+  border-color: var(--accent);
   background: var(--bg-tertiary);
   transform: translateY(-2px);
+  box-shadow: inset 0 -2px 0 0 transparent,
+              0 0 0 2px var(--accent), 0 0 20px rgba(102, 192, 244, 0.2);
 }
 
 .holdings-card::before {
@@ -123,11 +126,21 @@
 }
 
 /* Character accent — bottom rule on each tile matches their colour */
-.holdings-card[data-accent="kratos"] { box-shadow: inset 0 -2px 0 0 var(--accent-kratos); }
-.holdings-card[data-accent="aloy"]   { box-shadow: inset 0 -2px 0 0 var(--accent-aloy); }
-.holdings-card[data-accent="joel"]   { box-shadow: inset 0 -2px 0 0 var(--accent-joel); }
-.holdings-card[data-accent="jin"]    { box-shadow: inset 0 -2px 0 0 var(--accent-jin); }
-.holdings-card[data-accent="drake"]  { box-shadow: inset 0 -2px 0 0 var(--accent-drake); }
+.holdings-card[data-accent="kratos"]      { box-shadow: inset 0 -2px 0 0 var(--accent-kratos); }
+.holdings-card[data-accent="aloy"]        { box-shadow: inset 0 -2px 0 0 var(--accent-aloy); }
+.holdings-card[data-accent="joel"]        { box-shadow: inset 0 -2px 0 0 var(--accent-joel); }
+.holdings-card[data-accent="jin"]         { box-shadow: inset 0 -2px 0 0 var(--accent-jin); }
+.holdings-card[data-accent="drake"]       { box-shadow: inset 0 -2px 0 0 var(--accent-drake); }
+.holdings-card[data-accent="halo"]        { box-shadow: inset 0 -2px 0 0 var(--accent); }
+
+/* Visible subtitle */
+.holdings-card__sub {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary);
+  margin: 0 0 0.4rem;
+  opacity: 0.75;
+}
 
 /* ---------- Detail overlay ---------- */
 

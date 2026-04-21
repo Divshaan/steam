@@ -39,15 +39,56 @@
               visibility 0s linear 0s;
 }
 
-/* ---------- Wordmark + name prompt ---------- */
+/* ---------- Fixed corner elements ---------- */
 
-.intake__wordmark {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  margin: 0 auto 2rem;
-  display: block;
+.intake-brand {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+  color: var(--text-primary);
+  z-index: 100;
 }
+
+.intake-brand .steam-logo {
+  width: 40px;
+  height: 40px;
+  color: var(--text-primary);
+}
+
+.intake-brand sup {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
+.intake-ver {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 11px;
+  color: var(--text-secondary);
+  z-index: 100;
+}
+
+.intake-status {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 5rem;
+  font-size: 10px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  letter-spacing: 0.16em;
+  z-index: 100;
+}
+
+/* ---------- Name prompt ---------- */
 
 .intake__tagline {
   text-align: center;
@@ -75,17 +116,31 @@
   width: 100%;
   max-width: 420px;
   text-align: center;
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  padding: 0.4rem 0.5rem;
-  border-bottom: 1px solid var(--hairline-strong);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--hairline-strong);
   color: var(--text-primary);
-  transition: border-color var(--dur-short) var(--ease-quiet);
+  background: rgba(27, 40, 56, 0.4);
+  transition: border-color var(--dur-short) var(--ease-quiet),
+              background var(--dur-short) var(--ease-quiet);
   caret-color: var(--accent);
 }
 
+#owner-name::placeholder {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
 #owner-name:focus {
-  border-bottom-color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(102, 192, 244, 0.04);
+  outline: none;
 }
 
 .intake__submit {
