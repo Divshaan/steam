@@ -1,0 +1,114 @@
+/* ======================================================================
+   Specimens — featured exhibits gallery
+   ====================================================================== */
+
+.specimens {
+  padding-top: 3rem;
+}
+
+.specimens__head {
+  text-align: center;
+  max-width: 780px;
+  margin: 2rem auto 6rem;
+}
+
+.specimens__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.specimens__title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem;
+  line-height: 1;
+}
+
+.specimens__lede {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ---------- Exhibit ---------- */
+
+.exhibit {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 7rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.exhibit:last-child { border-bottom: none; margin-bottom: 2rem; }
+
+.exhibit:nth-child(odd) .exhibit__frame { order: 1; }
+.exhibit:nth-child(odd) .exhibit__caption { order: 2; }
+
+.exhibit:nth-child(even) .exhibit__frame { order: 2; }
+.exhibit:nth-child(even) .exhibit__caption { order: 1; }
+
+.exhibit__frame {
+  position: relative;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--hairline-strong);
+}
+
+.exhibit__art {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.exhibit__caption {
+  padding: 0 1rem;
+}
+
+.exhibit__acc {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.exhibit__title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: var(--text-primary);
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.exhibit__desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1200px) {
+  .exhibit {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: left;
+  }
+  .exhibit:nth-child(odd) .exhibit__frame,
+  .exhibit:nth-child(even) .exhibit__frame { order: 1; }
+  .exhibit:nth-child(odd) .exhibit__caption,
+  .exhibit:nth-child(even) .exhibit__caption { order: 2; }
+  .exhibit__caption { padding: 0; }
+}
+
+@media (max-width: 480px) {
+  .exhibit__frame { padding: 1rem; }
+  .specimens__head { margin-bottom: 3.5rem; }
+}

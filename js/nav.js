@@ -1,54 +1,49 @@
-/* ============================================
-   STEAM CORP — SHARED NAVIGATION
-   ============================================ */
+/* ======================================================================
+   OWNED — Site navigation
+   Active-link highlighting + mobile hamburger toggle.
+   ====================================================================== */
 
 (function () {
-  'use strict';
+  "use strict";
 
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  function init() {
+    var nav = document.querySelector(".site-nav");
+    if (!nav) return;
 
-  const pageMap = {
-    'index.html': 0,
-    'vault.html': 1,
-    'assets.html': 2,
-    'about.html': 3,
-    '': 0
-  };
+    var toggle = nav.querySelector(".site-nav__toggle");
+    var links = nav.querySelectorAll(".site-nav__links a");
 
-  // Highlight active nav link
-  const navLinks = document.querySelectorAll('.nav__link');
-  const activeIndex = pageMap[currentPage];
-
-  navLinks.forEach((link, i) => {
-    if (i === activeIndex) {
-      link.classList.add('nav__link--active');
-    }
-  });
-
-  // Mobile hamburger toggle
-  const hamburger = document.querySelector('.nav__hamburger');
-  const navLinksContainer = document.querySelector('.nav__links');
-
-  if (hamburger && navLinksContainer) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinksContainer.classList.toggle('open');
+    // Active link
+    var path = location.pathname.split("/").pop() || "vault.html";
+    links.forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (href === path) a.classList.add("is-active");
     });
 
-    // Close menu when a link is clicked
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinksContainer.classList.remove('open');
+    // Mobile toggle
+    if (toggle) {
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        nav.classList.toggle("is-open");
       });
-    });
 
-    // Close menu on outside click
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav')) {
-        hamburger.classList.remove('active');
-        navLinksContainer.classList.remove('open');
-      }
-    });
+      document.addEventListener("click", function (e) {
+        if (!nav.contains(e.target) && nav.classList.contains("is-open")) {
+          nav.classList.remove("is-open");
+        }
+      });
+
+      links.forEach(function (a) {
+        a.addEventListener("click", function () {
+          nav.classList.remove("is-open");
+        });
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
 })();

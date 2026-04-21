@@ -3,94 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Steam Corp — Own Everything. Owe Nothing.</title>
-  <meta name="description" content="Steam Corp Private Vault. You've been acquired. Own Everything. Owe Nothing.">
+  <title>OWNED — Intake</title>
+  <meta name="description" content="The Holdings. Preserved in perpetuity.">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/intake.css">
 
-  <!-- Favicon placeholder -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+  <script src="js/owner.js"></script>
+  <script>
+    // Repeat-visit guard — runs before any UI renders
+    if (window.OWNED) window.OWNED.redirectIfEnrolled();
+  </script>
 </head>
-<body>
+<body class="intake-body">
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__logo">
-      <svg class="nav__logo-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-        <line x1="12" y1="8" x2="12" y2="2" stroke="currentColor" stroke-width="1.5"/>
+  <main class="intake">
+
+    <!-- Stage 1 — Wordmark + prompt -->
+    <section class="intake__stage intake__stage--name is-active" data-stage="name">
+      <svg class="intake__wordmark" viewBox="0 0 440 80" aria-label="OWNED">
+        <text x="50%" y="62" text-anchor="middle"
+              font-family="Bebas Neue, sans-serif"
+              font-size="72" letter-spacing="22"
+              fill="#c6d4df">OWNED</text>
       </svg>
-      Steam Corp
-    </div>
+      <p class="intake__tagline serif-italic">The Holdings. Preserved in perpetuity.</p>
 
-    <div class="nav__hamburger" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <form class="intake__form" id="intake-form" autocomplete="off">
+        <label class="intake__label" for="owner-name">State your name for the record.</label>
+        <input type="text" id="owner-name" name="owner" maxlength="60"
+               placeholder="" spellcheck="false" autofocus required>
+        <button type="submit" class="btn-ghost intake__submit">Proceed</button>
+      </form>
+      <p class="intake__hint mono">Press enter when ready.</p>
+    </section>
 
-    <ul class="nav__links">
-      <li><a href="index.html" class="nav__link">Unit-000: Intake</a></li>
-      <li><a href="vault.html" class="nav__link">Unit-001: Vault</a></li>
-      <li><a href="assets.html" class="nav__link">Unit-002: Personnel</a></li>
-      <li><a href="about.html" class="nav__link">Unit-003: Memorandum</a></li>
-    </ul>
-  </nav>
+    <!-- Stage 2 — Scan -->
+    <section class="intake__stage intake__stage--scan" data-stage="scan">
+      <div class="scan-panel" id="scan-panel">
+        <!-- Video (camera path) -->
+        <video class="scan-panel__video" id="scan-video" autoplay playsinline muted></video>
 
-  <!-- Scanline overlay -->
-  <div class="scanline-overlay"></div>
+        <!-- Silhouette placeholder (fallback path) -->
+        <div class="scan-panel__silhouette" id="scan-silhouette" aria-hidden="true">
+          <svg viewBox="0 0 200 240" class="silhouette" role="img" aria-label="Unphotographed owner">
+            <defs>
+              <radialGradient id="silGlow" cx="50%" cy="42%" r="55%">
+                <stop offset="0%" stop-color="#66c0f4" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#66c0f4" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect x="0" y="0" width="200" height="240" fill="#1b2838"/>
+            <circle cx="100" cy="105" r="90" fill="url(#silGlow)"/>
+            <!-- Hooded figure: cloak + shoulders + head silhouette -->
+            <path d="M 100 40 C 72 40, 58 62, 60 92 L 60 110 C 40 122, 28 148, 25 192 L 25 240 L 175 240 L 175 192 C 172 148, 160 122, 140 110 L 140 92 C 142 62, 128 40, 100 40 Z"
+                  fill="#0e141b" stroke="#8899a6" stroke-width="1.2" opacity="0.9"/>
+            <!-- Inner shadow / face void -->
+            <ellipse cx="100" cy="96" rx="24" ry="30" fill="#0e141b" stroke="#8899a6" stroke-width="0.6"/>
+            <!-- Hood rim -->
+            <path d="M 60 92 Q 100 68, 140 92" fill="none" stroke="#8899a6" stroke-width="0.8" opacity="0.6"/>
+            <!-- Cross-hatch detail on cloak shoulders -->
+            <g stroke="#8899a6" stroke-width="0.4" opacity="0.35">
+              <line x1="40" y1="150" x2="70" y2="180"/>
+              <line x1="45" y1="165" x2="70" y2="195"/>
+              <line x1="50" y1="180" x2="70" y2="210"/>
+              <line x1="160" y1="150" x2="130" y2="180"/>
+              <line x1="155" y1="165" x2="130" y2="195"/>
+              <line x1="150" y1="180" x2="130" y2="210"/>
+            </g>
+          </svg>
+        </div>
 
-  <!-- Home Page -->
-  <main class="home">
-    <!-- Background layers -->
-    <div class="home__bg"></div>
-    <div class="home__corridor-lines"></div>
-    <div class="home__vignette"></div>
+        <!-- Scan line overlay -->
+        <div class="scan-line" id="scan-line"></div>
 
-    <!-- Main content -->
-    <div class="home__content">
-      <p class="home__identifier fade-in">
-        Steam Corp &mdash; Private Vault Division
-      </p>
+        <!-- Corner brackets (archival frame) -->
+        <span class="scan-corner scan-corner--tl"></span>
+        <span class="scan-corner scan-corner--tr"></span>
+        <span class="scan-corner scan-corner--bl"></span>
+        <span class="scan-corner scan-corner--br"></span>
 
-      <h1 class="home__headline fade-in fade-in--delay-1">
-        You've Been<br>Acquired.
-      </h1>
-
-      <p class="home__tagline fade-in fade-in--delay-2">
-        Own Everything. Owe Nothing.
-      </p>
-
-      <div class="home__cta fade-in fade-in--delay-3">
-        <a href="vault.html" class="btn btn--primary">Report for Processing</a>
+        <!-- Microcopy blocks -->
+        <div class="scan-microcopy" id="scan-microcopy">
+          <div class="scan-microcopy__line" data-line="0"></div>
+          <div class="scan-microcopy__line" data-line="1"></div>
+          <div class="scan-microcopy__line" data-line="2"></div>
+        </div>
       </div>
+
+      <button type="button" class="scan-skip link-quiet" id="scan-skip">› Skip camera</button>
+      <p class="scan-status mono" id="scan-status">Awaiting permission.</p>
+    </section>
+
+    <!-- Vault door transition (covers screen on completion) -->
+    <div class="vault-door" id="vault-door" aria-hidden="true">
+      <div class="vault-door__panel vault-door__panel--left"></div>
+      <div class="vault-door__panel vault-door__panel--right"></div>
+      <div class="vault-door__seam"></div>
     </div>
 
-    <!-- Bottom status bar -->
-    <div class="home__status fade-in fade-in--delay-4">
-      <span class="home__status-item">
-        <span class="home__status-dot"></span>
-        Vault Status: Active
-      </span>
-      <span class="home__status-item">Assets Acquired: 4</span>
-      <span class="home__status-item">Clearance: Public</span>
-    </div>
-
-    <!-- Legal -->
-    <p class="home__legal fade-in fade-in--delay-4">
-      &copy; Valve Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries. This is a student thesis project — not affiliated with Valve.
-    </p>
   </main>
 
-  <script src="js/nav.js"></script>
+  <script src="js/intake.js"></script>
 </body>
 </html>
