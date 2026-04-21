@@ -35,7 +35,7 @@
 }
 
 .vault__greeting {
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-style: italic;
   font-weight: 400;
   font-size: clamp(2.2rem, 4.6vw, 3.75rem);

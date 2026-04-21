@@ -49,6 +49,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.4rem;
   letter-spacing: 0.14em;
   color: var(--text-primary);
@@ -58,7 +59,6 @@
 .intake-brand .steam-logo {
   width: 40px;
   height: 40px;
-  color: var(--text-primary);
 }
 
 .intake-brand sup {
@@ -105,7 +105,7 @@
 }
 
 .intake__label {
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 1.35rem;
   color: var(--text-primary);
